@@ -68,6 +68,8 @@ public class ThreeDsDialogFragment extends DialogFragment {
         md = getArguments().getString(MD);
         paReq = getArguments().getString(PA_REQ);
         termUrl = getArguments().getString(TERM_URL);
+            setStyle(DialogFragment.STYLE_NORMAL,
+             android.R.style.Theme_Black_NoTitleBar_Fullscreen);
     }
 
     @Override
