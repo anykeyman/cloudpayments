@@ -68,7 +68,7 @@ public class ThreeDsDialogFragment extends DialogFragment {
         md = getArguments().getString(MD);
         paReq = getArguments().getString(PA_REQ);
         termUrl = getArguments().getString(TERM_URL);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.FullScreenDialog)
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.FullScreenDialog);
     }
 
     @Override
