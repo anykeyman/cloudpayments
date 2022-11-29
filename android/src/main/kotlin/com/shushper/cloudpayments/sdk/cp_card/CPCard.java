@@ -56,9 +56,9 @@ public class CPCard {
             throw new IllegalArgumentException("Card number is not correct.");
         }
 
-        if (!isValidExpDate(expDate)) {
-            throw new IllegalArgumentException("Expiration date is not correct.");
-        }
+//         if (!isValidExpDate(expDate)) {
+//             throw new IllegalArgumentException("Expiration date is not correct.");
+//         }
 
         this.number = number;
         this.expDate = expDate;
