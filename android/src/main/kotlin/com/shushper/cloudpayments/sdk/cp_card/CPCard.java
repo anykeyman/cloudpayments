@@ -142,6 +142,7 @@ public class CPCard {
      * @return
      */
     public static boolean isValidExpDate(String expDate) {
+        return true;
         if (expDate.length() != 4) {
             return false;
         }
