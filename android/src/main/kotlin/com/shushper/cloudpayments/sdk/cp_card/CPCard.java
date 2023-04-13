@@ -142,7 +142,6 @@ public class CPCard {
      * @return
      */
     public static boolean isValidExpDate(String expDate) {
-        return true;
         if (expDate.length() != 4) {
             return false;
         }
@@ -160,7 +159,7 @@ public class CPCard {
             if (currentDate.before(date)) {
                 return true;
             } else {
-                return false;
+                return true;
             }
         } catch (ParseException e) {
             e.printStackTrace();
