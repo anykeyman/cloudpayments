@@ -29,6 +29,8 @@ public class CPCard {
     private String number;
     private String expDate;
     private String cvv;
+    private String sberOrderId;
+    private String order_uuid;
 
     private static final String KEY_VERSION() {
         return "04";
@@ -181,7 +183,7 @@ public class CPCard {
     public String cardCryptogram(String publicId) throws UnsupportedEncodingException,
             NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException,
             IllegalBlockSizeException, InvalidKeyException {
-        return cardCryptogram(number, expDate, cvv, publicId);
+        return cardCryptogram(number, expDate, cvv, sberOrderId, order_uuid);
     }
 
 
