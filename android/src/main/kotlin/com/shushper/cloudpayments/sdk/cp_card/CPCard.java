@@ -15,6 +15,8 @@ import java.security.spec.X509EncodedKeySpec;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -212,11 +214,12 @@ public class CPCard {
             IllegalBlockSizeException, InvalidKeyException {
 
         String date = dateFormat();
-        print(dateFormat);
+        System.out.println(date);
         cardNumber = prepareCardNumber(cardNumber);
         String shortNumber = cardNumber.substring(0, 6) + cardNumber.substring(cardNumber.length() - 4, cardNumber.length());
         String exp = "20" + cardExp.substring(2, 4) + cardExp.substring(0, 2);
         String s = date + "/" + order_uuid + "/" + cardNumber + "/" + cardCvv + "/" + exp + "/" + sberOrderId;
+        System.out.println(s);
         byte[] bytes = s.getBytes("ASCII");
         Cipher cipher = Cipher.getInstance("RSA/None/PKCS1Padding");
         SecureRandom random = new SecureRandom();
