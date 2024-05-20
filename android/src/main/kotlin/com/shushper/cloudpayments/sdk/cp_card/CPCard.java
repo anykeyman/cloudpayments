@@ -184,6 +184,12 @@ public class CPCard {
         return cardCryptogram(number, expDate, cvv, publicId);
     }
 
+
+    public String dateFormat() {
+        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(LocalDateTime.now());
+    }
+
+
     /**
      * Генерим криптограму для карты
      * @param cardNumber
@@ -198,16 +204,18 @@ public class CPCard {
      * @throws IllegalBlockSizeException
      * @throws InvalidKeyException
      */
-    private String cardCryptogram(String cardNumber, String cardExp, String cardCvv, String publicId) throws UnsupportedEncodingException,
+    private String cardCryptogram(String cardNumber, String cardExp, String cardCvv, String sberOrderId, String order_uuid) throws UnsupportedEncodingException,
             NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException,
             IllegalBlockSizeException, InvalidKeyException {
 
+        String date = dateFormat();
+        print(dateFormat);
         cardNumber = prepareCardNumber(cardNumber);
         String shortNumber = cardNumber.substring(0, 6) + cardNumber.substring(cardNumber.length() - 4, cardNumber.length());
-        String exp = cardExp.substring(2, 4) + cardExp.substring(0, 2);
-        String s = cardNumber + "@" + exp + "@" + cardCvv + "@" + publicId;
+        String exp = "20" + cardExp.substring(2, 4) + cardExp.substring(0, 2);
+        String s = date + "/" + order_uuid + "/" + cardNumber + "/" + cardCvv + "/" + exp + "/" + sberOrderId;
         byte[] bytes = s.getBytes("ASCII");
-        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA1AndMGF1Padding");
+        Cipher cipher = Cipher.getInstance("RSA/None/PKCS1Padding");
         SecureRandom random = new SecureRandom();
         cipher.init(Cipher.ENCRYPT_MODE, getRSAKey(), random);
         byte[] crypto = cipher.doFinal(bytes);
