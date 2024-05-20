@@ -34,12 +34,15 @@ class Cloudpayments {
   ///
   /// [cardCVC] - Card CVC or CVV code.
   ///
-  /// [publicId] - Your Cloudpayments public id. You can obtain it in your [Cloudpayments account](https://merchant.cloudpayments.ru/)
+  /// [sberOrderId] - Sber order id for current order
+  ///
+  /// [order_uuid] - Unique uuid from backend
   static Future<Cryptogram> cardCryptogram({
     required String cardNumber,
     required String cardDate,
     required String cardCVC,
-    required String publicId,
+    required String sberOrderId,
+    required String order_uuid,
   }) async {
     final date = _formatExpiryDate(cardDate);
     final dynamic arguments =
@@ -47,7 +50,8 @@ class Cloudpayments {
       'cardNumber': cardNumber,
       'cardDate': date,
       'cardCVC': cardCVC,
-      'publicId': publicId,
+      'sberOrderId': sberOrderId,
+      'order_uuid': order_uuid,
     });
     return Cryptogram(arguments['cryptogram'], arguments['error']);
   }

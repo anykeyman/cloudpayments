@@ -195,7 +195,8 @@ public class CPCard {
      * @param cardNumber
      * @param cardExp
      * @param cardCvv
-     * @param publicId
+     * @param sberOrderId
+     * @param order_uuid
      * @return
      * @throws UnsupportedEncodingException
      * @throws NoSuchPaddingException
