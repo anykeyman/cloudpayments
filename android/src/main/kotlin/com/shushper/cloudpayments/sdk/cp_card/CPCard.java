@@ -15,8 +15,8 @@ import java.security.spec.X509EncodedKeySpec;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -25,6 +25,9 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.Instant;
 
 public class CPCard {
 
@@ -190,7 +193,7 @@ public class CPCard {
 
 
     public String dateFormat() {
-        return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(LocalDateTime.now());
+        return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.ofInstant(Instant.now().truncatedTo(ChronoUnit.SECONDS), ZoneId.of("Europe/Moscow")));
     }
 
 
