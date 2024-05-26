@@ -64,6 +64,7 @@ class Cloudpayments {
     required String acsUrl,
     required String transactionId,
     required String paReq,
+    required String termUrl,
   }) async {
     try {
       final dynamic arguments =
@@ -71,6 +72,7 @@ class Cloudpayments {
         'acsUrl': acsUrl,
         'transactionId': transactionId,
         'paReq': paReq,
+        'termUrl': termUrl,
       });
 
       if (arguments == null) {
