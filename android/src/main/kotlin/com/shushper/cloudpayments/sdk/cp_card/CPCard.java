@@ -39,7 +39,7 @@ public class CPCard {
     }
 
     private static final String PUBLIC_KEY() {
-        return "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArBZ1NNjvszen6BNWsgyDUJvDUZDtvR4jKNQtEwW1iW7hqJr0TdD8hgTxw3DfH+Hi/7ZjSNdH5EfChvgVW9wtTxrvUXCOyJndReq7qNMo94lHpoSIVW82dp4rcDB4kU+q+ekh5rj9Oj6EReCTuXr3foLLBVpH0/z1vtgcCfQzsLlGkSTwgLqASTUsuzfI8viVUbxE1a+600hN0uBh/CYKoMnCp/EhxV8g7eUmNsWjZyiUrV8AA/5DgZUCB+jqGQT/Dhc8e21tAkQ3qan/jQ5i/QYocA/4jW3WQAldMLj0PA36kINEbuDKq8qRh25v+k4qyjb7Xp4W2DywmNtG3Q20MQIDAQAB";
+        return "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArF8/ZhJqYKtOOeQRzAhMAxwT6cYIrxw8WBlsiXorfawr8OGcoLnFf3H5zSv/0oDjw8ynE3C4T5Cd5BC4U8UWrf+QT0OVP2BF81pG4bwbivVMVtFTvOQwfqDSuoKP38NW5Ozjd3GHY9xp//JEIRi4gM+FQyXBluFheNtpUICZNieljhojGa5Lym2WmZsP/goPmJ/lMNJcQ5WTHhq7CciHOWY0p5CShRTKp2+Y8kCwS4EzVscOv5jHsc1PA+8OqVPPGhhi7kyFRyvySEq2KXL0A2MDWB5MPt9QyAnQpYhWhGZ1qIYYpvqta87y2yeTAt4rEFaPIeOwpyOu5GqNgQkE7wIDAQAB\n-----END PUBLIC KEY-----";
     }
 
     private CPCard() {
@@ -214,12 +214,11 @@ public class CPCard {
             IllegalBlockSizeException, InvalidKeyException {
 
         String date = dateFormat();
-//        System.out.println(date);
         cardNumber = prepareCardNumber(cardNumber);
         String shortNumber = cardNumber.substring(0, 6) + cardNumber.substring(cardNumber.length() - 4, cardNumber.length());
         String exp = "20" + cardExp.substring(2, 4) + cardExp.substring(0, 2);
         String s = date + "/" + order_uuid + "/" + cardNumber + "/" + cardCvv + "/" + exp + "/" + sberOrderId;
-//        System.out.println(s);
+
         byte[] bytes = s.getBytes("ASCII");
         Cipher cipher = Cipher.getInstance("RSA/None/PKCS1Padding");
         SecureRandom random = new SecureRandom();
