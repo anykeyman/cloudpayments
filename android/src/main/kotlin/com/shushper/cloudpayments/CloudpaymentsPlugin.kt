@@ -147,14 +147,15 @@ class CloudpaymentsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         val cardNumber = params["cardNumber"] as String
         val cardDate = params["cardDate"] as String
         val cardCVC = params["cardCVC"] as String
-        val publicId = params["publicId"] as String
+        val sberOrderId = params["sberOrderId"] as String
+        val order_uuid = params["order_uuid"] as String
 
         val card = CPCard(cardNumber, cardDate, cardCVC)
         var cardCryptogram: String? = null
         var error: String? = null
 
         try {
-            cardCryptogram = card.cardCryptogram(publicId)
+            cardCryptogram = card.cardCryptogram(sberOrderId, order_uuid)
         } catch (e: UnsupportedEncodingException) {
             e.printStackTrace()
             error = "UnsupportedEncodingException"

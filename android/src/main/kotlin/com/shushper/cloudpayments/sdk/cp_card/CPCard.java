@@ -182,7 +182,7 @@ public class CPCard {
      * @throws IllegalBlockSizeException
      * @throws InvalidKeyException
      */
-    public String cardCryptogram(String publicId) throws UnsupportedEncodingException,
+    public String cardCryptogram(String sberOrderId, String order_uuid) throws UnsupportedEncodingException,
             NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException,
             IllegalBlockSizeException, InvalidKeyException {
         return cardCryptogram(number, expDate, cvv, sberOrderId, order_uuid);
