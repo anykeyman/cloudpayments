@@ -39,7 +39,7 @@ public class CPCard {
     }
 
     private static final String PUBLIC_KEY() {
-        return "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArF8/ZhJqYKtOOeQRzAhMAxwT6cYIrxw8WBlsiXorfawr8OGcoLnFf3H5zSv/0oDjw8ynE3C4T5Cd5BC4U8UWrf+QT0OVP2BF81pG4bwbivVMVtFTvOQwfqDSuoKP38NW5Ozjd3GHY9xp//JEIRi4gM+FQyXBluFheNtpUICZNieljhojGa5Lym2WmZsP/goPmJ/lMNJcQ5WTHhq7CciHOWY0p5CShRTKp2+Y8kCwS4EzVscOv5jHsc1PA+8OqVPPGhhi7kyFRyvySEq2KXL0A2MDWB5MPt9QyAnQpYhWhGZ1qIYYpvqta87y2yeTAt4rEFaPIeOwpyOu5GqNgQkE7wIDAQAB\n-----END PUBLIC KEY-----";
+        return "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArF8/ZhJqYKtOOeQRzAhMAxwT6cYIrxw8WBlsiXorfawr8OGcoLnFf3H5zSv/0oDjw8ynE3C4T5Cd5BC4U8UWrf+QT0OVP2BF81pG4bwbivVMVtFTvOQwfqDSuoKP38NW5Ozjd3GHY9xp//JEIRi4gM+FQyXBluFheNtpUICZNieljhojGa5Lym2WmZsP/goPmJ/lMNJcQ5WTHhq7CciHOWY0p5CShRTKp2+Y8kCwS4EzVscOv5jHsc1PA+8OqVPPGhhi7kyFRyvySEq2KXL0A2MDWB5MPt9QyAnQpYhWhGZ1qIYYpvqta87y2yeTAt4rEFaPIeOwpyOu5GqNgQkE7wIDAQAB";
     }
 
     private CPCard() {
@@ -190,7 +190,7 @@ public class CPCard {
 
 
     public String dateFormat() {
-        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(LocalDateTime.now());
+        return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(LocalDateTime.now());
     }
 
 
