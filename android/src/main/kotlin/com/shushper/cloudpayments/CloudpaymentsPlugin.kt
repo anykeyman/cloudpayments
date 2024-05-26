@@ -187,12 +187,14 @@ class CloudpaymentsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         val acsUrl = params["acsUrl"] as String
         val transactionId = params["transactionId"] as String
         val paReq = params["paReq"] as String
+        val termUrl = params["termUrl"] as String
 
         activity?.let {
             val dialog = ThreeDsDialogFragment.newInstance(
                     acsUrl,
                     transactionId,
-                    paReq
+                    paReq,
+                    termUrl
             )
             dialog.show(it.supportFragmentManager, "3DS")
 

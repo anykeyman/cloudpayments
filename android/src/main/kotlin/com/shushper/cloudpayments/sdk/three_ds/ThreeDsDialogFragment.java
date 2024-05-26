@@ -50,13 +50,13 @@ public class ThreeDsDialogFragment extends DialogFragment {
         this.listener = listener;
     }
 
-    public static ThreeDsDialogFragment newInstance(String acsUrl, String md, String paReq) {
+    public static ThreeDsDialogFragment newInstance(String acsUrl, String md, String paReq, String termUrl) {
         ThreeDsDialogFragment dialogFragment = new ThreeDsDialogFragment();
         Bundle args = new Bundle();
         args.putString(ACS_URL, acsUrl);
         args.putString(MD, md);
         args.putString(PA_REQ, paReq);
-        args.putString(TERM_URL, POST_BACK_URL);
+        args.putString(TERM_URL, termUrl);
         dialogFragment.setArguments(args);
         return dialogFragment;
     }
