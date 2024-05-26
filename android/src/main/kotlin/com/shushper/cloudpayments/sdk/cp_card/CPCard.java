@@ -228,8 +228,15 @@ public class CPCard {
 
         cipher.init(Cipher.ENCRYPT_MODE, getRSAKey());
         byte[] crypto = cipher.doFinal(bytes);
+        String crypto64 = Base64.encodeToString(crypto, Base64.DEFAULT);
 
-        return Base64.encodeToString(crypto, Base64.DEFAULT);
+        String[] cr_array = crypto64.split("\n");
+        crypto64 = "";
+
+        for (int i = 0; i < cr_array.length; i++) {
+            crypto64 += cr_array[i];
+        }
+        return crypto64;
 
     }
 
