@@ -211,6 +211,9 @@ class CloudpaymentsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
                     result.success(null)
                 }
             })
+
+            print(dialog)
+            dialog.dismiss()
         }
     }
 
