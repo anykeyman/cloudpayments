@@ -114,7 +114,7 @@ public class ThreeDsDialogFragment extends DialogFragment {
         public void onPageFinished(WebView view, String url) {
 
             if (url.toLowerCase().equals(POST_BACK_URL.toLowerCase())) {
-//                view.setVisibility(View.GONE);
+                view.setVisibility(View.GONE);
                 view.loadUrl("javascript:window.JavaScriptThreeDs.processHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
             }
         }
@@ -142,8 +142,6 @@ public class ThreeDsDialogFragment extends DialogFragment {
                             listener.onAuthorizationCompleted(md, paRes);
                         }
                     });
-                    dismiss();
-
                 }
             } else {
                 if (listener != null) {
@@ -153,8 +151,6 @@ public class ThreeDsDialogFragment extends DialogFragment {
                             listener.onAuthorizationFailed(html);
                         }
                     });
-                    dismiss();
-
                 }
             }
             dismiss();

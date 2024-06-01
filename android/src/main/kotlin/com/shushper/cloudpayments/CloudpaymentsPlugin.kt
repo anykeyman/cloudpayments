@@ -201,6 +201,8 @@ class CloudpaymentsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
             dialog.setListener(object : ThreeDSDialogListener {
                 override fun onAuthorizationCompleted(md: String, paRes: String) {
                     result.success(mapOf("md" to md, "paRes" to paRes))
+                    print(dialog)
+                    print(md)
                 }
 
                 override fun onAuthorizationFailed(html: String?) {
