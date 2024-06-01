@@ -142,6 +142,8 @@ public class ThreeDsDialogFragment extends DialogFragment {
                             listener.onAuthorizationCompleted(md, paRes);
                         }
                     });
+                    dismiss();
+
                 }
             } else {
                 if (listener != null) {
@@ -151,6 +153,8 @@ public class ThreeDsDialogFragment extends DialogFragment {
                             listener.onAuthorizationFailed(html);
                         }
                     });
+                    dismiss();
+
                 }
             }
             dismiss();
