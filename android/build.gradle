@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.cloudpayments.sdk'
+    namespace 'com.shushper.cloudpayments'
 
     compileSdkVersion 28
 
